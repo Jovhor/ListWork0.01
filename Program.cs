@@ -22,9 +22,9 @@ namespace ListWork0._01
         /// <param name="list"></param>
         /// <param name="at"></param>
         /// <param name="to"></param>
-        static void MyListRemoveAtTo(List<int> list, int at, int to)
+        static void MyListRemoveAtTo(List<int> listy, int at, int to)
         {
-            list.RemoveAll(list => list > at && list < to);
+            listy.RemoveAll(list => list > at && list < to);
         }
 
         /// <summary>
@@ -47,6 +47,8 @@ namespace ListWork0._01
             Console.WriteLine("больше 25, но меньше 50");
             MyListRemoveAtTo(list, 25, 50);
             MyListPrint(list);
+
+            Console.ReadKey();
         }
     }
 }
