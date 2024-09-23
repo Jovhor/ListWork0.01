@@ -1,42 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListWork0._01
 {
     class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Вывод элементов листа в консоль
+        /// </summary>
+        /// <param name="list"></param>
+        static void MyListPrint(List<int> list)
         {
-            List<Nump> numps = new List<Nump>();
-
-            Addy(numps);
-            Print(numps);
-
-
-
-            Console.ReadKey();
+            Console.WriteLine($"Элементов в листе: {list.Count}");
+            for (int i = 0; i < list.Count; i++) Console.WriteLine($"Элемент: {i} = {list[i]}");
+            Console.WriteLine("-------------------------------------------------------------------");
         }
-        private static void Addy(List<Nump> list)
+
+        /// <summary>
+        /// Удаление эдеиентов листа в заданным диапазоне
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="at"></param>
+        /// <param name="to"></param>
+        static void MyListRemoveAtTo(List<int> list, int at, int to)
+        {
+            list.RemoveAll(list => list > at && list < to);
+        }
+
+        /// <summary>
+        /// Заполнение листа рандомными числами в заданном диапозоне
+        /// </summary>
+        /// <param name="list"></param>
+        static void MyListRandGenerate(List<int> list, int a, int b)
         {
             Random rand = new Random();
-
-            for (int i = 1; i <= 100; i++)
-            {
-                list.Add(new Nump() { NumpID = i, NumpIS = (int)rand.Next(1, 101) });
-            }
+            for (int i = 0; i < 100; i++) list.Add(rand.Next(a, b));
         }
 
-
-        private static void Print(List<Nump> list)
+        static void Main()
         {
-            Console.WriteLine();
-            foreach (Nump s in list)
-            {
-                Console.WriteLine(s);
-            }
+            List<int> list = new List<int>();
+
+            MyListRandGenerate(list, 0, 100);
+            MyListPrint(list);
+
+            Console.WriteLine("больше 25, но меньше 50");
+            MyListRemoveAtTo(list, 25, 50);
+            MyListPrint(list);
         }
     }
 }
