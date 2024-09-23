@@ -17,7 +17,7 @@ namespace ListWork0._01
         }
 
         /// <summary>
-        /// Удаление эдеиентов листа в заданным диапазоне
+        /// Удаление элементов листа в заданным диапазоне
         /// </summary>
         /// <param name="list"></param>
         /// <param name="at"></param>
@@ -45,7 +45,7 @@ namespace ListWork0._01
             MyListPrint(list);
 
             Console.WriteLine("больше 25, но меньше 50");
-            MyListRemoveAtTo(list, 25, 50);
+            MyListRemoveAtTo(list, 50, 25);
             MyListPrint(list);
 
             Console.ReadKey();
