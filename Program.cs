@@ -37,6 +37,17 @@ namespace ListWork0._01
             for (int i = 0; i < 100; i++) list.Add(rand.Next(a, b));
         }
 
+        /// <summary>
+        /// Сортировка элементов листа по возрастанию
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="at"></param>
+        /// <param name="to"></param>
+        static void MyListSorted(List<int> list)
+        {
+            list.Sort();
+        }
+
         static void Main()
         {
             List<int> list = new List<int>();
@@ -45,7 +56,12 @@ namespace ListWork0._01
             MyListPrint(list);
 
             Console.WriteLine("больше 25, но меньше 50");
-            MyListRemoveAtTo(list, 50, 25);
+            MyListRemoveAtTo(list, 25, 50);
+            MyListPrint(list);
+
+            Console.WriteLine();
+            Console.WriteLine("проверим, получилось ли");
+            MyListSorted(list);
             MyListPrint(list);
 
             Console.ReadKey();
